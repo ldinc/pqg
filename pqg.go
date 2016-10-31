@@ -9,6 +9,8 @@ import (
 // Gen emit <p,q,g>.
 // p = 2q + 1, p,q - safe primes
 // g - cyclic group generator Zp
+// performs n Miller-Rabin tests with 1 - 1/(4^n) probability false rate.
+// Gain n - bit width for integer & probability rang for MR.
 // It returns p, q, g and write error message.
 func Gen(n, probability int) (*big.Int, *big.Int, *big.Int, error) {
 	for {
