@@ -28,10 +28,12 @@ func Gen(n, probability int) (*big.Int, *big.Int, *big.Int, error) {
 				if err != nil {
 					return nil, nil, nil, err
 				}
-				if b := new(big.Int).Exp(g, two, p); b.Cmp(one) == 0 {
+				b := new(big.Int).Exp(g, two, p)
+				if b.Cmp(one) == 0 {
 					continue
 				}
-				if b := new(big.Int).Exp(g, q, p); b.Cmp(one) == 0 {
+				b = new(big.Int).Exp(g, q, p)
+				if b.Cmp(one) == 0 {
 					return p, q, g, nil
 				}
 			}
